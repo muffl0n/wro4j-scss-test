@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://maven.apache.org/maven-v4_0_0.xsd" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>test</groupId>
+	<artifactId>test</artifactId>
+	<version>1.0.0</version>
+	<packaging>war</packaging>
+	<name>test</name>
+
+	<dependencies>
+		
+	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>ro.isdc.wro4j</groupId>
+				<artifactId>wro4j-maven-plugin</artifactId>
+				<version>1.7.7-SNAPSHOT</version>
+				<dependencies>
+					<dependency>
+					<groupId>org.jruby</groupId>
+					<artifactId>jruby-complete</artifactId>
+					<version>1.6.8</version>
+				</dependency>
+				</dependencies>
+				<executions>
+					<execution>
+                        <id>css_test</id>
+                        <configuration>
+                            <targetGroups>base</targetGroups>
+                            <destinationFolder>${basedir}/src/main/webapp/generated</destinationFolder>
+                        </configuration>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+				</executions>
+				<configuration>
+					<minimize>true</minimize>
+					<contextFolder>${basedir}/src/main/webapp</contextFolder>
+					<wroManagerFactory>ro.isdc.wro.maven.plugin.manager.factory.ConfigurableWroManagerFactory</wroManagerFactory>
+					<wroFile>${basedir}/src/main/webapp/WEB-INF/classes/wro.xml</wroFile>
+					<extraConfigFile>${basedir}/src/main/webapp/WEB-INF/classes/wro.properties</extraConfigFile>
+					<ignoreMissingResources>false</ignoreMissingResources>
+					<incrementalBuildEnabled>true</incrementalBuildEnabled>
+					<parallelProcessing>true</parallelProcessing>
+    			</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<additionalConfig>
+						<file>
+							<name>.settings/org.eclipse.core.resources.prefs</name>
+							<content>
+                <![CDATA[eclipse.preferences.version=1${line.separator}encoding/<project>=${project.build.sourceEncoding}${line.separator}]]>
+							</content>
+						</file>
+					</additionalConfig>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
+</project>
