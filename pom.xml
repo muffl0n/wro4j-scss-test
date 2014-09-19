@@ -18,19 +18,23 @@
 				<groupId>ro.isdc.wro4j</groupId>
 				<artifactId>wro4j-maven-plugin</artifactId>
 				<version>1.7.7-SNAPSHOT</version>
-				<dependencies>
-					<dependency>
-					<groupId>org.jruby</groupId>
-					<artifactId>jruby-complete</artifactId>
-					<version>1.6.8</version>
-				</dependency>
-				</dependencies>
 				<executions>
 					<execution>
                         <id>css_test</id>
                         <configuration>
                             <targetGroups>base</targetGroups>
                             <destinationFolder>${basedir}/src/main/webapp/generated</destinationFolder>
+                        </configuration>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+					<execution>
+                        <id>css_test2</id>
+                        <configuration>
+                            <targetGroups>base2</targetGroups>
+                            <destinationFolder>${basedir}/src/main/webapp/generated2</destinationFolder>
                         </configuration>
                         <phase>compile</phase>
                         <goals>
