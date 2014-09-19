@@ -5,6 +5,6 @@
 		<css minimize="true">/scss/base.scss</css>
 	</group>
 	<group name="base2">
-		<css minimize="true">/scss/base.scss</css>
+		<css minimize="true">/scss/base2.scss</css>
 	</group>
 </groups>
