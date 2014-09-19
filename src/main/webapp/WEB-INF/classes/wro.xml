@@ -4,4 +4,7 @@
 	<group name="base">
 		<css minimize="true">/scss/base.scss</css>
 	</group>
+	<group name="base2">
+		<css minimize="true">/scss/base.scss</css>
+	</group>
 </groups>
